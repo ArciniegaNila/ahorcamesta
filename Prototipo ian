@@ -1,0 +1,289 @@
+package com.mycompany.ahorcadogui;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Random;
+
+public class AhorcadoGUI extends JFrame {
+
+    // Lista de palabras
+    String[] palabras = {
+        "JAVA",
+        "PROGRAMACION",
+        "COMPUTADORA",
+        "NETBEANS",
+        "AHORCADO",
+        "INTERFAZ"
+    };
+
+    String palabra;
+    char[] progreso;
+
+    int intentos = 6;
+
+    JLabel lblPalabra;
+    JLabel lblIntentos;
+    JLabel lblEstado;
+
+    JTextField txtLetra;
+
+    JButton btnProbar;
+    JButton btnReiniciar;
+
+    JTextArea areaLetras;
+
+    public AhorcadoGUI() {
+
+        iniciarJuego();
+
+        setTitle("Juego del Ahorcado");
+        setSize(650, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        // Título
+        JLabel titulo = new JLabel("EL AHORCADO");
+        titulo.setFont(new Font("Arial", Font.BOLD, 30));
+        titulo.setBounds(180, 20, 300, 40);
+        add(titulo);
+
+        // =====================================================
+        // AQUI INICIA COMO FUNCIONAN LOS GUIONES "_"
+        // =====================================================
+
+        // Mostrar los guiones dependiendo de la palabra
+        lblPalabra = new JLabel(mostrarPalabra());
+
+        // Tamaño de letra
+        lblPalabra.setFont(new Font("Arial", Font.BOLD, 35));
+
+        // Posición
+        lblPalabra.setBounds(50, 90, 550, 50);
+
+        // Centrar texto
+        lblPalabra.setHorizontalAlignment(SwingConstants.CENTER);
+
+        // Agregar a la ventana
+        add(lblPalabra);
+
+        // =====================================================
+        // AQUI TERMINA COMO FUNCIONAN LOS GUIONES "_"
+        // =====================================================
+
+        // Intentos
+        lblIntentos = new JLabel("Intentos restantes: " + intentos);
+        lblIntentos.setFont(new Font("Arial", Font.PLAIN, 22));
+        lblIntentos.setBounds(190, 160, 300, 30);
+        add(lblIntentos);
+
+        // Estado
+        lblEstado = new JLabel("Escribe una letra");
+        lblEstado.setFont(new Font("Arial", Font.PLAIN, 20));
+        lblEstado.setBounds(210, 200, 250, 30);
+        add(lblEstado);
+
+        // Caja de texto
+        txtLetra = new JTextField();
+        txtLetra.setFont(new Font("Arial", Font.BOLD, 24));
+        txtLetra.setBounds(210, 250, 70, 45);
+        add(txtLetra);
+
+        // Botón probar
+        btnProbar = new JButton("Probar");
+        btnProbar.setFont(new Font("Arial", Font.BOLD, 18));
+        btnProbar.setBounds(310, 250, 120, 45);
+        add(btnProbar);
+
+        // Letras usadas
+        areaLetras = new JTextArea();
+        areaLetras.setEditable(false);
+        areaLetras.setFont(new Font("Arial", Font.PLAIN, 18));
+
+        JScrollPane scroll = new JScrollPane(areaLetras);
+        scroll.setBounds(200, 320, 220, 70);
+
+        add(scroll);
+
+        // Botón reiniciar
+        btnReiniciar = new JButton("Reiniciar");
+        btnReiniciar.setFont(new Font("Arial", Font.BOLD, 18));
+        btnReiniciar.setBounds(240, 410, 150, 40);
+        add(btnReiniciar);
+
+        // Acción botón probar
+        btnProbar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                jugar();
+            }
+        });
+
+        // Enter en teclado
+        txtLetra.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                jugar();
+            }
+        });
+
+        // Reiniciar
+        btnReiniciar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                reiniciarJuego();
+            }
+        });
+
+        setVisible(true);
+    }
+
+    // Método jugar
+    public void jugar() {
+
+        String entrada = txtLetra.getText().toUpperCase();
+
+        if (entrada.length() != 1) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Ingresa solo una letra");
+
+            return;
+        }
+
+        char letra = entrada.charAt(0);
+
+        boolean encontrada = false;
+
+        // =====================================================
+        // AQUI INICIA COMO SE CAMBIAN LOS "_" POR LETRAS
+        // =====================================================
+
+        for (int i = 0; i < palabra.length(); i++) {
+
+            // Revisar si la letra existe
+            if (palabra.charAt(i) == letra) {
+
+                // Cambiar "_" por la letra correcta
+                progreso[i] = letra;
+
+                encontrada = true;
+            }
+        }
+
+        // =====================================================
+        // AQUI TERMINA COMO SE CAMBIAN LOS "_" POR LETRAS
+        // =====================================================
+
+        areaLetras.append(letra + " ");
+
+        if (!encontrada) {
+
+            intentos--;
+            lblEstado.setText("Letra incorrecta");
+        } else {
+
+            lblEstado.setText("¡Letra correcta!");
+        }
+
+        // Actualizar palabra en pantalla
+        lblPalabra.setText(mostrarPalabra());
+
+        lblIntentos.setText("Intentos restantes: " + intentos);
+
+        txtLetra.setText("");
+
+        // Ganar
+        if (String.valueOf(progreso).equals(palabra)) {
+
+            JOptionPane.showMessageDialog(this,
+                    "¡GANASTE!\nLa palabra era: " + palabra);
+
+            reiniciarJuego();
+        }
+
+        // Perder
+        if (intentos == 0) {
+
+            JOptionPane.showMessageDialog(this,
+                    "PERDISTE\nLa palabra era: " + palabra);
+
+            reiniciarJuego();
+        }
+    }
+
+    // =====================================================
+    // AQUI INICIA COMO SE MUESTRAN LOS "_"
+    // =====================================================
+
+    public String mostrarPalabra() {
+
+        String texto = "";
+
+        // Recorrer cada espacio de la palabra
+        for (char c : progreso) {
+
+            // Agregar "_" o letras
+            texto += c + " ";
+        }
+
+        return texto;
+    }
+
+    // =====================================================
+    // AQUI TERMINA COMO SE MUESTRAN LOS "_"
+    // =====================================================
+
+    // =====================================================
+    // AQUI INICIA COMO SE CREAN LOS "_"
+    // =====================================================
+
+    public void iniciarJuego() {
+
+        Random random = new Random();
+
+        palabra = palabras[random.nextInt(palabras.length)];
+
+        // Crear espacios dependiendo del tamaño de la palabra
+        progreso = new char[palabra.length()];
+
+        // Poner "_" en cada espacio
+        for (int i = 0; i < progreso.length; i++) {
+
+            progreso[i] = '_';
+        }
+
+        intentos = 6;
+    }
+
+    // =====================================================
+    // AQUI TERMINA COMO SE CREAN LOS "_"
+    // =====================================================
+
+    // Reiniciar juego
+    public void reiniciarJuego() {
+
+        iniciarJuego();
+
+        lblPalabra.setText(mostrarPalabra());
+        lblIntentos.setText("Intentos restantes: " + intentos);
+        lblEstado.setText("Nuevo juego iniciado");
+
+        txtLetra.setText("");
+
+        areaLetras.setText("");
+    }
+
+    // Main
+    public static void main(String[] args) {
+
+        new AhorcadoGUI();
+    }
+}
