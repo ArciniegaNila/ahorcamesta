@@ -6,38 +6,36 @@
 
 [![Repositorio](https://img.shields.io/badge/Repo-GitHub-181717?logo=github)](https://github.com/ArciniegaNila/ahorcamesta) [![Hecho con Java](https://img.shields.io/badge/Hecho%20con-Java-007396?logo=java)](https://www.java.com/)
 
-**Ahorcado:** implementación simple del clásico juego del ahorcado escrita en Java. El archivo principal del proyecto es `ahorcamelo.java`.
+**Ahorcado:**Juego ahorcado desarrollado en java con integracion a Jpanel, JVista. El archivo principal del proyecto `ahorcamelo.java`.
 
-**Características**
+**Caracteristicas del juego**
 
-- Juego tradicional del ahorcado por consola
+- Juego tradicional compuesto por categoria
 - Palabras integradas y lógica de comprobación de letras
-- Interfaz de texto simple, fácil de entender y modificar
+- Interfaz grafica acompañada de logica simple
 
 **Cómo ejecutar**
 
-1. Asegúrate de tener instalado Java (JDK) en tu máquina.
-2. Compila y ejecuta el programa desde la terminal:
+1. Asegura tener instalado JDK.
+2. Compila y ejecuta el programa desde tu terminal:
 
 ```bash
 javac ahorcamelo.java
 java ahorcamelo
 ```
 
-Si tu fichero principal tiene otro nombre, ajusta los comandos anteriores.
-
 **Estructura**
 
-- `ahorcamelo.java` - código fuente principal del juego
+- `ahorcamelo.java` - código fuente
 
 **Contribuciones**
 
-Pull requests y mejoras son bienvenidas. Siéntete libre de abrir issues para sugerir palabras, mejoras o correcciones.
+Colaboradores: Ian, Gerardo, Arciniega
 
 **Licencia**
 
-(Añade aquí la licencia si corresponde)
 
 **Contacto**
 
+@ArciniegaNila
 Repositorio: https://github.com/ArciniegaNila/ahorcamesta
