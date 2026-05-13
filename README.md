@@ -18,15 +18,16 @@
 
 ```bash
 git clone https://github.com/ArciniegaNila/ahorcamesta.git
+cd ahorcamesta
 javac *.java
-java AhorcadoJuego
+java ahorcamelo
 ```
 
 **Estructura**
 
 - `AhorcadoFrame.java` - ventana principal
 - `AhorcadoPanel.java` - interfaz grafica
-- `AhorcadoJuego.java` - logica del juego
+- `ahorcamelo.java` - logica del juego
 - `Categoria.java` - categorias y palabras
 - `PalabraPista.java` - palabra y pista
 - `HangmanPanel.java` - dibujo del ahorcado
