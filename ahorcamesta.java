@@ -1,7 +1,7 @@
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class AhorcadoJuego {
+public class ahorcamesta {
 
     private Categoria categoriaActual;
     private PalabraPista rondaActual;

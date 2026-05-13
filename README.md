@@ -17,9 +17,9 @@
 2. Compila y ejecuta el programa desde tu terminal:
 
 ```bash
-
+git clone https://github.com/ArciniegaNila/ahorcamesta.git
 javac *.java
-java ahorcamelo
+java AhorcadoJuego
 ```
 
 **Estructura**
