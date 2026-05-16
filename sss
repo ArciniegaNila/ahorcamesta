@@ -1,0 +1,96 @@
+package proyecto.ahorcado;
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+/**
+ *
+ * @author gelop
+ */
+public abstract class Ahorcado extends JFrame implements ActionListener{
+
+   
+    private JTextField edt1,edt2;
+   private String palabra;
+    private String[] lineas=new String[10];
+    private JButton BTnbuscar,BTnNuevo,BtnSalir;
+    private JLabel label1,label2,label4,imagenn,imagenn2,imagenn3,imagenn4,imagenn5,imagenn6;
+    private int contador=0,intentos=0,correctas=0;
+    private JLabel imagen,imagen2,imagen3,imagen4,imagen5,imagen6; 
+
+    
+    public Ahorcado(){ 
+  this.setTitle("Bienbenido a Tamaulipas ahorcado");
+  this.setSize(450, 300);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
+        this.setLocationRelativeTo(null);
+
+
+       label1=new JLabel("palablra:"); 
+       label1.setBounds(100,20,100,20);
+       label2=new JLabel("letra:");
+       label2.setBounds(200,90,100,20);
+       label4=new JLabel("");
+       label4.setBounds(140,40,200,20);
+       
+       edt1=new JTextField("");
+       edt1.setEditable(false);
+        edt1.setBounds(170,20,200,20);
+        edt2= new JTextField("");
+        edt2.setBounds(250,90,80,20);
+        
+        BTnbuscar = new JButton ("Verificar");
+        BTnbuscar.setBounds(200,120,100,20);
+        
+        BtnSalir=new JButton ("Salir");
+        BtnSalir.setBounds(200,200,100,20);
+        
+        BTnNuevo=new JButton ("palabra nueva");
+        BTnNuevo.setBounds(200,160, 100, 20);
+        
+        BTnbuscar.addActionListener(this);
+        BTnNuevo.addActionListener(this);
+        BtnSalir.addActionListener(this);
+      Icon imagenInicio= new ImageIcon("C:\\Users\\pablo\\OneDrive\\Documentos\\NetBeansProjects\\AhorcadoDaniela\\src\\errores\\1.png");
+imagenn=new JLabel(imagenInicio);
+imagenn.setBounds(30,110,160,170);
+
+Icon imagen2= new ImageIcon("C:\\Users\\pablo\\OneDrive\\Documentos\\NetBeansProjects\\AhorcadoDaniela\\src\\errores\\2.png");
+imagenn2=new JLabel(imagen2);
+imagenn2.setBounds(30,110,160,170);
+
+Icon imagen3= new ImageIcon("C:\\Users\\pablo\\OneDrive\\Documentos\\NetBeansProjects\\AhorcadoDaniela\\src\\errores\\3.png");
+imagenn3=new JLabel(imagen3);
+imagenn3.setBounds(30,110,160,170);
+
+Icon imagen4= new ImageIcon("C:\\Users\\pablo\\OneDrive\\Documentos\\NetBeansProjects\\AhorcadoDaniela\\src\\errores\\4.png");
+imagenn4=new JLabel(imagen4);
+imagenn4.setBounds(30,110,160,170);
+
+Icon imagen5= new ImageIcon("C:\\Users\\pablo\\OneDrive\\Documentos\\NetBeansProjects\\AhorcadoDaniela\\src\\errores\\5.png");
+imagenn5=new JLabel(imagen5);
+imagenn5.setBounds(30,110,160,170);
+
+Icon imagen6= new ImageIcon("C:\\Users\\pablo\\OneDrive\\Documentos\\NetBeansProjects\\AhorcadoDaniela\\src\\errores\\6.png");
+imagenn6=new JLabel(imagen6);
+imagenn6.setBounds(30,110,160,170);
+
+getContentPane().add(label1);
+getContentPane().add(label2);
+getContentPane().add(label4);
+getContentPane().add(edt1);
+getContentPane().add(edt2);
+getContentPane().add(BtnSalir);
+ getContentPane().add(BTnbuscar);
+ getContentPane().add(BTnNuevo);
+
+getContentPane().setLayout(null);
+setSize(400,350);
+setVisible(true);
+
+                }
+        
+        }

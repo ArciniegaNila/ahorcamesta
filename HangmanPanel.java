@@ -5,19 +5,27 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+/**
+ * Panel que dibuja el ahorcado gráficamente.
+ * Dibuja las partes del ahorcado según el número de errores.
+ */
 public class HangmanPanel extends JPanel {
 
+    // -- Variables usadas: contador de errores
     private int errores;
 
+    // -- Constructor: configurar dimensiones y color
     public HangmanPanel() {
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(300, 420));
     }
 
+    // -- Métodos: establecer número de errores
     public void setErrores(int errores) {
         this.errores = errores;
     }
 
+    // -- Lógica: dibujar el ahorcado según errores
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

@@ -1,8 +1,8 @@
 # Ahorcado
 
-[![Repositorio](https://img.shields.io/badge/Repo-GitHub-181717?logo=github)](https://github.com/ArciniegaNila/ahorcamesta) [![Hecho con Java](https://img.shields.io/badge/Hecho%20con-Java-007396?logo=java)](https://www.java.com/)
+[![Repositorio](https://img.shields.io/badge/Repo-GitHub-181717?logo=github)](https://github.com/ArciniegaNila/ahorcamesta) [![Made in Java](https://img.shields.io/badge/Hecho%20con-Java-007396?logo=java)](https://www.java.com/)
 
-**Ahorcado:** Juego del ahorcado desarrollado en Java con Swing y paneles separados por clases. El archivo principal del proyecto es `ahorcamelo.java`.
+**Ahorcado:** Juego ahorcado desarrollado en Java con interfaz basado en swing y paneles, hecho con separaciones por clases. El archivo principal del proyecto es `ahorcamelo.java`.
 
 **Caracteristicas del juego**
 
