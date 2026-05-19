@@ -20,7 +20,7 @@
 git clone https://github.com/ArciniegaNila/ahorcamesta.git
 cd ahorcamesta
 javac *.java
-java ahorcamelo
+java AhorcamestaApp
 ```
 
 **Estructura**
