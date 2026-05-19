@@ -25,12 +25,9 @@ java ahorcamelo
 
 **Estructura**
 
-- `AhorcadoFrame.java` - ventana principal
-- `AhorcadoPanel.java` - interfaz grafica
-- `ahorcamelo.java` - logica del juego
+- `AhorcamestaApp.java` - Prograa principal para iniciarlo
 - `Categoria.java` - categorias y palabras
-- `PalabraPista.java` - palabra y pista
-- `HangmanPanel.java` - dibujo del ahorcado
+- `Pistas.java` - Pistas.java
 
 **Contribuciones**
 
