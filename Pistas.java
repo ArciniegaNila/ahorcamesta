@@ -10,6 +10,7 @@ public class Pistas {
 
         // Constructor: recibe una palabra y sus pistas, convierte la palabra a mayúsculas
         public PalabraPista(String palabra, String[] pistas) {
+            this.palabra = palabra != null ? palabra.toUpperCase() : "";
             this.pistas = pistas != null ? pistas : new String[0];  // si no hay pistas, creamos un array vacío
         }
 
@@ -74,9 +75,8 @@ public class Pistas {
     // categoria 4
     public static Categoria videojuegos() {
         return new Categoria("Ciudades", new PalabraPista[]{
-            new PalabraPista("Altamira", new String[]{"Laguna Champeyan", "Ciudad en Tamaulipas", "De aqui es cuco sanchez, "al poniente de ciudad valles" "}),
-            new PalabraPista("Reynosa", new String[]{"Conexion directa con Texas", "Plaza principal Miguel Hidalgo", "Tiene temporadaPharr TX la iudad mas cercana"})
-            new
+            new PalabraPista("Altamira", new String[]{"Laguna Champayan", "Ciudad en Tamaulipas", "De aqui es cuco Sanchez y queda al poniente de Ciudad Valles"}),
+            new PalabraPista("Reynosa", new String[]{"Conexion directa con Texas", "Plaza principal Miguel Hidalgo", "Pharr TX es la ciudad mas cercana"})
         });
     }
 }
